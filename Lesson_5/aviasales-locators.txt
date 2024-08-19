@@ -1,0 +1,5 @@
+Локатор логотипа - [data-test-id="logo"]
+Локатор поля Откуда - [data-test-id="origin-input"]
+Локатор поля Куда - [data-test-id="destination-input"]
+Локатор поля Когда - [data-test-id="start-date-field"]
+Локатор поля Обратно - [data-test-id="start-date-value"]
