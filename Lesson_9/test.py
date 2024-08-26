@@ -26,7 +26,7 @@ def test_create_employee(get_token):
     result = db.sql_add_new_employee("Vladimir", "Vasiliev", "+79105551133", "qwerty@yandex.ru", id, True)
     employee = Employee(URL)
     emp_id = result.lastrowid
-    employee_id = employee.get_employee_info(emp_id)
+    employee_id = employee.get_employees(id)[0]
     assert employee_id['firstName'] == 'Vladimir'
 
 
