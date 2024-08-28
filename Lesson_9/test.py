@@ -25,9 +25,10 @@ def test_create_employee(get_token):
     db = DB(db_connect)
     result = db.sql_add_new_employee("Vladimir", "Vasiliev", "+79105551133", "qwerty@yandex.ru", id, True)
     employee = Employee(URL)
-    emp_id = result.lastrowid
     employee_id = employee.get_employees(id)[0]
     assert employee_id['firstName'] == 'Vladimir'
+    db = DB(db_connect)
+    db.sql_delete_employee(employee_id["id"])
 
 
 def test_change_employer_info(get_token):
@@ -68,6 +69,8 @@ def test_change_employer_info(get_token):
     """Проверка изменения почты"""
     assert (employer_changed.json()["email"]
             ) == body_change_employer.get("email")
+    db = DB(db_connect)
+    db.sql_delete_employee(id)
 
 def test_get_employer(get_token):
         db = DB(db_connect)

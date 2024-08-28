@@ -29,3 +29,8 @@ class DB:
                     "insert into employee (first_name, last_name, phone, email, company_id, is_active) values (:first_name, :last_name, :phone, :email, :company_id, :is_active)"),
                 employee_data)
             return rows
+
+    def sql_delete_employee(self, id):
+        with self.db.connect() as connection:
+            result = connection.execute(
+                text("delete from employee where id =:id"), {"id": id})
